@@ -378,6 +378,17 @@ footer {
     opacity: 0.8;
 }
 
+.copyright a {
+    color: var(--text-color);
+    text-decoration: underline;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.copyright a:hover {
+    opacity: 1;
+}
+
 .legal-links {
     display: flex;
     gap: 1rem;
