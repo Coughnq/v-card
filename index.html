@@ -3,304 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VizitQR™ Contact Card | Intelliquinte LLC</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <style>
-        /* Theme Color Variables */
-        .contact-card {
-            --card-accent: var(--primary);
-        }
-
-        .contact-card.theme-blue {
-            --card-accent: #2563EB;
-        }
-
-        .contact-card.theme-green {
-            --card-accent: #059669;
-        }
-
-        /* Update theme-dependent elements */
-        .contact-info .title {
-            color: var(--card-accent);
-        }
-
-        .contact-item i {
-            color: var(--card-accent);
-        }
-
-        .contact-item:hover {
-            background: var(--card-accent);
-            color: white;
-        }
-
-        .contact-item:hover a,
-        .contact-item:hover i {
-            color: white;
-        }
-
-        .social-link:hover {
-            background: var(--card-accent);
-        }
-    </style>
+    <meta name="description" content="VizitQR - View digital business cards">
+    <title>VizitQR - View Card</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="contact-card">
-            <div class="profile-section">
-                <img id="profilePhoto" class="profile-photo">
-                <div id="contact-info">
-                    <!-- Basic info will be populated by JavaScript -->
-                </div>
-            </div>
+    <header>
+        <div class="logo-container">
+            <h1>VizitQR</h1>
+        </div>
+        <nav>
+            <button id="themeToggle">Toggle Theme</button>
+            <a href="/" class="create-button">Create Your Card</a>
+        </nav>
+    </header>
 
-            <div class="action-buttons">
-                <button id="addContact" class="action-btn primary">
-                    <i class="fas fa-user-plus"></i>
-                    Add to Contacts
+    <main>
+        <div class="card-container">
+            <div id="vCardContainer"></div>
+            <div class="actions">
+                <button id="downloadVCard" class="action-button">
+                    <span class="icon">📇</span>
+                    <span>Save Contact</span>
                 </button>
-                <button id="scheduleMeeting" class="action-btn secondary">
-                    <i class="fas fa-calendar"></i>
-                    Schedule Meeting
+                <button id="copyUrl" class="action-button">
+                    <span class="icon">📋</span>
+                    <span>Copy Link</span>
                 </button>
-            </div>
-
-            <div class="quick-actions">
-                <button class="quick-action-btn" id="callBtn">
-                    <i class="fas fa-phone"></i>
-                    Call
-                </button>
-                <button class="quick-action-btn" id="messageBtn">
-                    <i class="fas fa-comment"></i>
-                    Message
-                </button>
-                <button class="quick-action-btn" id="emailBtn">
-                    <i class="fas fa-envelope"></i>
-                    Email
-                </button>
-            </div>
-
-            <div class="social-links" id="socialLinks">
-                <!-- Social media links will be added by JavaScript -->
             </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
-    <script src="./scripts.js"></script>
-    <footer class="contact-footer">
-        <div class="footer-content">
-            <div class="footer-brand">
-                <a href="https://intelliquinte.com" target="_blank">
-                    <img src="assets/images/IMG_0109.PNG" alt="Intelliquinte LLC" class="footer-logo">
-                </a>
-                <p>VizitQR™ by Intelliquinte LLC © 2024. All rights reserved.</p>
-            </div>
-            <div class="footer-links">
-                <a href="#" onclick="showModal('privacy')">
-                    <i class="fas fa-shield-alt"></i>
-                    Privacy Policy
-                </a>
-                <a href="#" onclick="showModal('terms')">
-                    <i class="fas fa-file-contract"></i>
-                    Terms of Service
-                </a>
-            </div>
-        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 VizitQR. Create and share digital business cards instantly.</p>
     </footer>
-    <div class="modal" id="privacyModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="hideModal('privacy')">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Privacy Policy</h2>
-            <div class="modal-body">
-                <h3>Last updated: December 2024</h3>
-                <p>At Intelliquinte LLC ("we," "our," or "us"), we take your privacy seriously. This Privacy Policy explains how we collect, use, and protect your information when you use our VizitQR service ("Service").</p>
-                
-                <h4>1. Information Collection</h4>
-                <p>Our Service processes the following types of information:</p>
-                <ul>
-                    <li>Contact Information (name, email, phone number)</li>
-                    <li>Professional Details (company, title, website)</li>
-                    <li>Social Media Links</li>
-                    <li>Profile Photos</li>
-                    <li>Meeting Preferences</li>
-                    <li>Additional Notes</li>
-                </ul>
-                
-                <h4>2. How We Process Your Data</h4>
-                <p>Our commitment to privacy includes:</p>
-                <ul>
-                    <li>Client-side Processing: All data processing occurs locally in your browser</li>
-                    <li>No Server Storage: We don't store any of your information on our servers</li>
-                    <li>URL Parameters: Information is transmitted solely through encrypted URL parameters</li>
-                    <li>Temporary Usage: Data exists only during active browser sessions</li>
-                    <li>No Tracking: We don't use cookies or analytics to track usage</li>
-                </ul>
-                
-                <h4>3. Data Security</h4>
-                <p>We protect your information through:</p>
-                <ul>
-                    <li>End-to-end URL Parameter Encryption</li>
-                    <li>HTTPS-only Connections</li>
-                    <li>Local Browser Processing</li>
-                    <li>No Database Storage</li>
-                    <li>Regular Security Audits</li>
-                    <li>Secure Development Practices</li>
-                </ul>
-                
-                <h4>4. Your Data Rights</h4>
-                <p>You maintain complete control over your data:</p>
-                <ul>
-                    <li>Data Ownership: You retain all rights to your information</li>
-                    <li>No Data Storage: We don't retain any of your information</li>
-                    <li>Data Portability: Easy export of contact information</li>
-                    <li>Data Deletion: Information is automatically cleared upon closing</li>
-                </ul>
-                
-                <h4>5. Third-Party Services</h4>
-                <p>We use limited third-party services:</p>
-                <ul>
-                    <li>Font Awesome: For icons and visual elements</li>
-                    <li>Google Fonts: For typography</li>
-                    <li>QR Code Library: For QR code generation</li>
-                    <li>All processing remains local to your device</li>
-                </ul>
-                
-                <h4>6. Children's Privacy</h4>
-                <p>Our Service:</p>
-                <ul>
-                    <li>Is not directed at children under 13</li>
-                    <li>Does not knowingly collect children's information</li>
-                    <li>Requires parental consent for users under 13</li>
-                </ul>
-                
-                <h4>7. International Users</h4>
-                <p>For users outside the United States:</p>
-                <ul>
-                    <li>We process data in accordance with GDPR principles</li>
-                    <li>We respect international data protection laws</li>
-                    <li>All processing occurs locally on your device</li>
-                </ul>
-                
-                <h4>8. Changes to Privacy Policy</h4>
-                <p>We may update this policy:</p>
-                <ul>
-                    <li>With notice on our website</li>
-                    <li>While maintaining our core privacy commitments</li>
-                    <li>With respect for your data rights</li>
-                </ul>
-                
-                <h4>Contact Us</h4>
-                <p>For privacy inquiries:</p>
-                <ul>
-                    <li>Email: privacy@intelliquinte.com</li>
-                    <li>Website: intelliquinte.com</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="modal" id="termsModal">
-        <div class="modal-content">
-            <button class="modal-close" onclick="hideModal('terms')">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2>Terms of Service</h2>
-            <div class="modal-body">
-                <h3>Last updated: December 2024</h3>
-                <p>Welcome to VizitQR by Intelliquinte LLC. By using our Service, you agree to these comprehensive terms.</p>
-                
-                <h4>1. Service Usage</h4>
-                <p>Acceptable use includes:</p>
-                <ul>
-                    <li>Creating personal or business contact cards</li>
-                    <li>Sharing professional contact information</li>
-                    <li>Generating QR codes for legitimate purposes</li>
-                    <li>Using features within reasonable limits</li>
-                </ul>
-                
-                <h4>2. User Responsibilities</h4>
-                <p>You are responsible for:</p>
-                <ul>
-                    <li>Accuracy of provided information</li>
-                    <li>Proper use of sharing features</li>
-                    <li>Maintaining appropriate content</li>
-                    <li>Protecting your shared links</li>
-                    <li>Complying with applicable laws</li>
-                    <li>Respecting others' privacy</li>
-                </ul>
-                
-                <h4>3. Intellectual Property</h4>
-                <p>Intelliquinte LLC retains all rights to:</p>
-                <ul>
-                    <li>Service software and code</li>
-                    <li>Visual design elements</li>
-                    <li>Branding and trademarks</li>
-                    <li>Documentation and content</li>
-                    <li>Technical implementations</li>
-                </ul>
-                
-                <h4>4. Prohibited Uses</h4>
-                <p>You may not use the Service for:</p>
-                <ul>
-                    <li>Illegal or fraudulent purposes</li>
-                    <li>Harassment or abuse</li>
-                    <li>Spam or unwanted communications</li>
-                    <li>Malicious code distribution</li>
-                    <li>Intellectual property violations</li>
-                    <li>Unauthorized commercial exploitation</li>
-                </ul>
-                
-                <h4>5. Disclaimer of Warranties</h4>
-                <p>The Service is provided "as is" without warranties regarding:</p>
-                <ul>
-                    <li>Availability or uptime</li>
-                    <li>Error-free operation</li>
-                    <li>Fitness for specific purposes</li>
-                    <li>Accuracy of QR codes</li>
-                    <li>Compatibility with all devices</li>
-                </ul>
-                
-                <h4>6. Limitation of Liability</h4>
-                <p>We are not liable for:</p>
-                <ul>
-                    <li>Direct or indirect damages</li>
-                    <li>Data loss or corruption</li>
-                    <li>Service interruptions</li>
-                    <li>Third-party actions</li>
-                    <li>User misuse of the Service</li>
-                </ul>
-                
-                <h4>7. Indemnification</h4>
-                <p>You agree to indemnify us against:</p>
-                <ul>
-                    <li>Claims from your use of the Service</li>
-                    <li>Violations of these terms</li>
-                    <li>Intellectual property infringement</li>
-                    <li>Legal fees and costs</li>
-                </ul>
-                
-                <h4>8. Modifications</h4>
-                <p>We reserve the right to:</p>
-                <ul>
-                    <li>Modify these terms</li>
-                    <li>Update the Service</li>
-                    <li>Change or discontinue features</li>
-                    <li>Adjust usage limits</li>
-                </ul>
-                
-                <h4>Contact Information</h4>
-                <p>For legal inquiries:</p>
-                <ul>
-                    <li>Email: legal@intelliquinte.com</li>
-                    <li>Website: intelliquinte.com</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
+    <script src="js/urlParser.js"></script>
+    <script src="js/vCardViewer.js"></script>
 </body>
 </html> 
