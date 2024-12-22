@@ -162,7 +162,7 @@ class VCardViewer {
         this.vCardContainer.innerHTML = `
             <div class="error-message">
                 <p>⚠️ ${message}</p>
-                <a href="https://viztqr.intelliquinte.com" class="action-button">Create a Card</a>
+                <a href="https://vizitqr.intelliquinte.com" class="action-button">Create a Card</a>
             </div>
         `;
     }
