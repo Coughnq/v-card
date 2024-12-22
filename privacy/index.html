@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - VizitQR</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <main class="legal-page">
+        <h1>Privacy Policy</h1>
+        <div class="legal-content">
+            <p class="last-updated">Last Updated: February 2024</p>
+
+            <section>
+                <h2>1. Overview</h2>
+                <p>VizitQR™ ("we", "our", or "us"), a service provided by Intelliquinte L.L.C., is committed to protecting your privacy. This Privacy Policy explains how your information is handled when using our digital business card service.</p>
+            </section>
+
+            <section>
+                <h2>2. Information Collection</h2>
+                <p>Our service operates on a "zero-storage" principle:</p>
+                <ul>
+                    <li>We do not maintain any databases or server-side storage of your information</li>
+                    <li>All information is encoded directly into the URL parameters of your digital business card</li>
+                    <li>The QR code generated is a direct encoding of this URL</li>
+                </ul>
+                
+                <p>Information that may be included in your URL parameters:</p>
+                <ul>
+                    <li>Name</li>
+                    <li>Job title</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Website URL</li>
+                    <li>Theme color preference</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>3. How Information is Used</h2>
+                <p>Your information is:</p>
+                <ul>
+                    <li>Only used to generate and display your digital business card</li>
+                    <li>Contained entirely within the URL and QR code you create</li>
+                    <li>Never stored on our servers</li>
+                    <li>Never tracked or analyzed</li>
+                    <li>Never used for marketing purposes</li>
+                    <li>Never shared with third parties</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>4. Technical Implementation</h2>
+                <p>Our service operates as follows:</p>
+                <ul>
+                    <li>All data processing occurs client-side in your browser</li>
+                    <li>Information is encoded into URL parameters using standard URL encoding</li>
+                    <li>QR codes are generated locally in your browser</li>
+                    <li>No cookies are used for tracking or data storage</li>
+                    <li>No analytics or tracking scripts are implemented</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>5. Data Sharing and Control</h2>
+                <p>When you share your digital business card:</p>
+                <ul>
+                    <li>You control who receives your QR code or URL</li>
+                    <li>Recipients can view your information without creating an account</li>
+                    <li>You can create new cards with different information at any time</li>
+                    <li>To "delete" your card, simply stop sharing the URL/QR code</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>6. Third-Party Services</h2>
+                <p>Our service:</p>
+                <ul>
+                    <li>Does not integrate with any third-party services</li>
+                    <li>Does not use third-party analytics</li>
+                    <li>Does not employ any tracking mechanisms</li>
+                    <li>Uses only essential client-side JavaScript for functionality</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>7. Changes to Privacy Policy</h2>
+                <p>We reserve the right to update this privacy policy at any time. Changes will be effective immediately upon posting to this location.</p>
+            </section>
+
+            <section>
+                <h2>8. Contact Information</h2>
+                <p>For privacy-related inquiries, please contact:</p>
+                <p>Privacy Officer<br>
+                Intelliquinte L.L.C.<br>
+                Email: privacy@intelliquinte.com</p>
+            </section>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="branding">
+                    <p class="logo">VizitQR™</p>
+                    <p class="copyright">&copy; 2024 Intelliquinte L.L.C. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <script>
+        // Handle redirects for SPA
+        (function(){
+            let redirect = sessionStorage.redirect;
+            delete sessionStorage.redirect;
+            if (redirect && redirect != location.href) {
+                history.replaceState(null, null, redirect);
+            }
+        })();
+    </script>
+</body>
+</html> 
